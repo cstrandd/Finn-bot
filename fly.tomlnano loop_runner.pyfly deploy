@@ -1,0 +1,21 @@
+app = "finn-bot"
+primary_region = "arn"
+
+[processes]
+app = "python loop_runner.py"
+
+[[vm]]
+cpu_kind = "shared"
+cpus = 1
+memory = "1gb"
+import time
+import subprocess
+
+while True:
+    print("Startar finn_discord_bot.py ...")
+    p = subprocess.Popen(["python", "finn_discord_bot.py"])
+    p.wait()
+    print("finn_discord_bot.py avslutades, startar om om 60 sekunder...")
+    time.sleep(60)
+
+
